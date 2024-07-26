@@ -10,11 +10,11 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function LoginPage() {
     return (
         <main className="flex min-h-screen bg-white">
-            <div className ="grid items-center grid-cols-2 mt-24">
+            <div className ="grid items-center grid-cols-2">
 
-                <div className='ps-20'>
-                  <img src="https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fskillcapital.41121682.png&w=640&q=75"></img>
-                  <div className='border boder-gray-600 shadow-lg p-6 w-5/6 mt-5'>
+                <div className='ms-28'>
+                  <img className='ms-12 mb-10' src="https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fskillcapital.41121682.png&w=640&q=75"></img>
+                  <div className='border rounded boder-gray-600 shadow-lg p-6 w-3/4 mt-5'>
                      <label>User Name</label>
                      <TextField fullWidth id="fullWidth" />
                      <label>Password</label>
@@ -31,9 +31,11 @@ export default function LoginPage() {
                 </div>
 
                 <div className='absolute w-1.9/3 left-[50%] mt-3'>
-                    <h1 className='text-3xl font-bold w-5/6 text-center text-customBlue '>Seamlessly manage all learner data in a unified platform.</h1>
-                    <p className='text-lg w-5/6 text-center font-light text-customBlue '>Centralize customer data effortlessly. Streamline communication, sales, and support for seamless growth.</p>
-                    <img src='https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpinkcrm.d54abf0d.png&w=3840&q=75'></img>
+                <div className='mt-12 ms-6'>
+                    <h1 className='text-3xl font-bold w-3/4 text-center text-customBlue ps-10 ms-4 '>Seamlessly manage all learner data in a unified platform.</h1>
+                    <p className='text-lg w-3/4 text-center font-light text-customBlue ms-14 '>Centralize customer data effortlessly. Streamline communication, sales, and support for seamless growth.</p>
+                </div>
+                    <img className='mt-10' src='https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpinkcrm.d54abf0d.png&w=3840&q=75'></img>
                 </div>
             </div>
         </main>
