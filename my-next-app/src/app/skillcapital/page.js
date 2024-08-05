@@ -33,8 +33,8 @@ export default function LoginPage() {
         }
         if (!hasError) {
             try {
-                const response = await axios.post('http://35.85.224.13:8081/api/v1/auth/login', {
-                    "email" : username,
+                const response = await axios.post('http://localhost:8080/login', {
+                    "username" : username,
                     "password" :password
                 });
 
@@ -43,6 +43,7 @@ export default function LoginPage() {
                 }
             } catch (error) {
                 if (error.response && error.response.status === 401) {
+                    console.error('Error response:', error.response);
                     setLoginError('Invalid username or password');
                 } else {
                     setLoginError('An error occurred. Please try again.');
