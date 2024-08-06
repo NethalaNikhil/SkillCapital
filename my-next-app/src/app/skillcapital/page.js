@@ -1,7 +1,6 @@
 "use client";
-import Box from '@mui/material/Box';
+
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
@@ -11,6 +10,9 @@ import axios from 'axios';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function LoginPage() {
+
+    const apiUrl = process.env.API_URL;
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [usernameError, setUsernameError] = useState('');
@@ -33,8 +35,8 @@ export default function LoginPage() {
         }
         if (!hasError) {
             try {
-                const response = await axios.post('http://localhost:8080/login', {
-                    "username" : username,
+                const response = await axios.post(`http://34.221.147.150:8081/api/v1/auth/login`, {
+                    "email" : username,
                     "password" :password
                 });
 
