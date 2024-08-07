@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from 'react';
+import Image from 'next/image'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
@@ -58,7 +59,7 @@ export default function LoginPage() {
         <main>
             <div className="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                 <div className='md:ms-28 ms-5'>
-                    <img className='md:ms-20 ms-5 mb-10 w-3/4 md:w-auto' src="https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fskillcapital.41121682.png&w=640&q=75" alt="Logo"></img>
+                    <img className='md:ms-20 ms-5 mb-10 w-3/4 md:w-auto' src="/skillcapital.png" alt="Logo"></img>
                     <div className='border-inherit border-2 rounded-md shadow-lg p-6 w-full md:w-3/4 mt-5 md:ms-10'>
                         <label className='font-normal text-sm'>User Name</label>
                         <TextField 
@@ -98,7 +99,7 @@ export default function LoginPage() {
                         <h1 className='text-3xl font-bold w-3/4 text-center text-customBlue ps-10 ms-4'>Seamlessly manage all learner data in a unified platform.</h1>
                         <p className='text-lg w-3/4 text-center font-light text-customBlue ms-10 lg:ms-14'>Centralize customer data effortlessly. Streamline communication, sales, and support for seamless growth.</p>
                     </div>
-                    <img className='mt-10' src='https://crm.skill-capital.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpinkcrm.d54abf0d.png&w=3840&q=75' alt="CRM Illustration"></img>
+                    <img className='mt-10' src="/pinkcrm.png"></img>
                 </div>
             </div>
         </main>
