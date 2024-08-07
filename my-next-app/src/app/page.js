@@ -7,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import axios from 'axios';
+import Link from 'next/Link'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -42,7 +43,7 @@ export default function LoginPage() {
                 });
 
                 if (response.status === 200) {
-                    console.log('Login successful', response.data);
+                    <Link href={'/success/page.js'}></Link>
                 }
             } catch (error) {
                 if (error.response && error.response.status === 401) {
