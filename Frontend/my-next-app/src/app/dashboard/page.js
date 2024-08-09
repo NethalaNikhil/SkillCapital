@@ -18,8 +18,8 @@ export default function Dashboard() {
                     <img className="mx-2" src="/button.svg" width={35}></img>
                     <img src="/skillcapital.png" width={180} height={5}></img>
                 </div>
-                <div className='flex'>
-                    <div className='me-2'>
+                <div className='flex items-center'>
+                    <div className='me-2 flex space-x-2'>
                         <Button variant="outlined" className="border-0 hover-bg pb-3"><span className="text-black text-base">Home</span></Button>
                         <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Leads</span><span><img src='/downarrow.svg'></img></span></Button>
                         <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Opportunities</span><span><img src='/downarrow.svg'></img></span></Button>
@@ -29,12 +29,12 @@ export default function Dashboard() {
                         <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Analytics</span><span><img src='/downarrow.svg'></img></span></Button>
                     </div>
                     <img src='/Stars.png' width={40}></img>
-                    <Button><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black' }} /></Button>
-                    <Button><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black' }} /></Button>
+                    <Button><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black',fontSize: '24px' }} /></Button>
+                    <Button><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black',fontSize: '24px' }} /></Button>
                 </div>
             </nav>
             <div >
-                <div className='grid grid-cols-5 container mx-auto gap-4 p-6 '>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-2 mx-10 mt-5'>
                     <div className='flex border-2 border p-2 rounded-lg bg-white shadow-lg shadow-slate-200'>
                         <img src='/person.svg'></img>
                         <div className='m-5'>
@@ -93,11 +93,11 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-row mb-3'>
-                <div className='ms-10 bg-white shadow-lg' >
+            <div className="flex flex-col lg:flex-row mb-3">
+                <div className="flex-1 bg-white shadow-lg  my-4 lg:ms-10">
                     <Chart
                         type='line'
-                        width={1000}
+                        width="140%"
                         height={400}
                         series={[
                             {
@@ -135,10 +135,8 @@ export default function Dashboard() {
                                     offsetX: 0,
                                     offsetY: -5
                                 },
-
                             },
                             yaxis: {
-
                                 tickAmount: 4,
                                 labels: {
                                     formatter: function (value) {
@@ -152,12 +150,16 @@ export default function Dashboard() {
                         }}
                     />
                 </div>
-                <div className="ms-16 container-sm w-full bg-white shadow-lg text-black ">
-                    <h1 className="text-center ">Analytics</h1>
-                    <div className="p-16"><h1 className="border rounded-full w-full text-center  p-32 font-bold"><p>0</p>Leads</h1></div>
+                <div className="flex-1 bg-white shadow-lg mx-4 my-4 lg:ms-16 me-20 text-black">
+                    <h1 className="text-center">Analytics</h1>
+                    <div className="p-16">
+                        <h1 className="border rounded-full border-2 border-black w-full text-center p-32 font-bold">
+                            <p>0</p>
+                            Leads
+                        </h1>
+                    </div>
                 </div>
             </div>
         </div>
-
     );
-}
+};
