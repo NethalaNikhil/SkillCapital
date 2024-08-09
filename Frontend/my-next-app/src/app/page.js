@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import axios from 'axios';
-import Link from 'next/Link'
+import Link from 'next/link'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
