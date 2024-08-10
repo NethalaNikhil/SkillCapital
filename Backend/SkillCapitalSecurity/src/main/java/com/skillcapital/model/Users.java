@@ -17,4 +17,13 @@ public class Users {
  private int id;
  private String username;
  private String password;
+ 
+ @Override
+ public String toString() {
+     return "Users{" +
+             "id=" + id +
+             ", username='" + username + '\'' +
+             ", password='" + password + '\'' +
+             '}';
+ }
 }

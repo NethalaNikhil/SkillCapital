@@ -151,7 +151,7 @@ export default function Dashboard() {
                     />
                 </div>
                 <div className="flex-1 bg-white shadow-lg mx-4 my-4 lg:ms-16 me-20 text-black">
-                    <h1 className="text-center">Analytics</h1>
+                    <p className="text-center">Analytics</p>
                     <div className="p-16">
                         <h1 className="border rounded-full border-2 border-black w-full text-center p-32 font-bold">
                             <p>0</p>
