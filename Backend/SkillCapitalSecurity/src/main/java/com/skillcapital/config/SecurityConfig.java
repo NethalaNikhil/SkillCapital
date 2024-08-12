@@ -13,54 +13,48 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity // for our own security config
-
+@EnableWebSecurity
 public class SecurityConfig {
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Autowired
-	private JwtFilter jwtFilter;
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf(customizer -> customizer.disable());
-		http.authorizeHttpRequests(request->request
-				.requestMatchers("register","login") // this will skip authentication
-				.permitAll()
-				.anyRequest().authenticated()); // others authenticate
-		
-//		http.formLogin(Customizer.withDefaults()); // for default form in postman return frontend code
-		http.httpBasic(Customizer.withDefaults()); // for postman
-		http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // for every refresh new sessionid will come 
-		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // first jwtFilter then UsernameAut
-		return http.build();
-		
-	}
-	
-	//to verify username and password by our own
-	@Bean // it will be in the cointainer then spring will pick
-	public UserDetailsService userDetailsService() {
-		return new InMemoryUserDetailsManager();
-	}
-	
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-		provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
-		provider.setUserDetailsService(userDetailsService);
-		return provider;
-	}
-	
-	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-		return config.getAuthenticationManager();
-	}
-	
+    @Autowired
+    private JwtFilter jwtFilter;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        return http.csrf(customizer -> customizer.disable()).
+                authorizeHttpRequests(request -> request
+                        .requestMatchers("login", "register").permitAll()
+                        .anyRequest().authenticated()).
+                httpBasic(Customizer.withDefaults()).
+                sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+
+
+    }
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
+        provider.setUserDetailsService(userDetailsService);
+
+
+        return provider;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+
+    }
+
+
 }
