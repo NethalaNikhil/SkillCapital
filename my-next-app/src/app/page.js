@@ -7,11 +7,12 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function LoginPage() {
+    const router = useRouter()
 
     const apiUrl = process.env.API_URL;
 
@@ -37,13 +38,15 @@ export default function LoginPage() {
         }
         if (!hasError) {
             try {
-                const response = await axios.post(`http://34.221.147.150:8081/api/v1/auth/login`, {
-                    "email" : username,
-                    "password" :password
+                const response = await axios.post(`http://localhost:8080/login`, {
+                    "username" : username,
+                    "password" : password
                 });
 
                 if (response.status === 200) {
-                    <Link href={'/success'}></Link>
+                    router.push('/dashboard')
+                    console.log(response.data);
+                    
                 }
             } catch (error) {
                 if (error.response && error.response.status === 401) {
