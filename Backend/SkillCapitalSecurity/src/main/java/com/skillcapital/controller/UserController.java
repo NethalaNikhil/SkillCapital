@@ -67,5 +67,10 @@ public class UserController {
 		service.DeleteUserById(id);
 		return "User Deleted Sucessfully";
 	}
+	
+	@GetMapping("/hello")
+	 public String sayHello(){
+		return "Hello world!";
+	    }
 
 }
