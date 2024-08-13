@@ -14,7 +14,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 export default function LoginPage() {
     const router = useRouter()
 
-    const apiUrl = process.env.API_URL;
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -38,7 +38,7 @@ export default function LoginPage() {
         }
         if (!hasError) {
             try {
-                const response = await axios.post(`http://localhost:8080/login`, {
+                const response = await axios.post(`${apiUrl}/login`, {
                     "username" : username,
                     "password" : password
                 });
