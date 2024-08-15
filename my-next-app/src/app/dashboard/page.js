@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import dynamic from 'next/dynamic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
+import Navbar from  '../../components/navbar'
 
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -11,28 +12,10 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 export default function Dashboard() {
+   
     return (
         <div style={{ color: "#F4F6F9" }}>
-            <nav className="flex justify-between mt-5 shadow-lg shadow-slate-200 p-1 border-top">
-                <div className="flex ms-2 mb-2">
-                    <img className="mx-2" src="/button.svg" width={35}></img>
-                    <img src="/skillcapital.png" width={180} height={5}></img>
-                </div>
-                <div className='flex items-center'>
-                    <div className='me-2 flex space-x-2'>
-                        <Button variant="outlined" className="border-0 hover-bg pb-3"><span className="text-black text-base">Home</span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Leads</span><span><img src='/downarrow.svg'></img></span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Opportunities</span><span><img src='/downarrow.svg'></img></span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Learners</span><span><img src='/downarrow.svg'></img></span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Courses</span><span><img src='/downarrow.svg'></img></span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Activites</span><span><img src='/downarrow.svg'></img></span></Button>
-                        <Button variant="outlined" className='border-0 hover-bg pb-3'><span className='text-black text-base'>Analytics</span><span><img src='/downarrow.svg'></img></span></Button>
-                    </div>
-                    <img src='/Stars.png' width={40}></img>
-                    <Button><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black',fontSize: '24px' }} /></Button>
-                    <Button><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black',fontSize: '24px' }} /></Button>
-                </div>
-            </nav>
+             <Navbar/>
             <div >
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-2 mx-10 mt-5'>
                     <div className='flex border-2 border p-2 rounded-lg bg-white shadow-lg shadow-slate-200'>
