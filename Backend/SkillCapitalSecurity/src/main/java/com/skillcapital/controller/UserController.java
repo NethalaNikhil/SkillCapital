@@ -26,16 +26,16 @@ public class UserController {
 	private UserServices service;
 	
 	@PostMapping("/register")
-	public Users register(@RequestBody Users user)
+	public ResponseEntity <Users> register(@RequestBody Users user)
 	{
 		
-		return service.register(user);
+		return new ResponseEntity<>(service.register(user),HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/login")
-	public String login(@RequestBody Users user)
+	public ResponseEntity <String> login(@RequestBody Users user)
 	{
-		return service.verify(user);
+		return new ResponseEntity<>(service.verify(user),HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/loginDetails")
@@ -63,9 +63,9 @@ public class UserController {
 	}
 
 	@DeleteMapping("/loginDetails/{id}")
-	public String DeleteUser(@PathVariable int id) {
+	public ResponseEntity <String> DeleteUser(@PathVariable int id) {
 		service.DeleteUserById(id);
-		return "User Deleted Sucessfully";
+		return new ResponseEntity<> ("User Deleted Sucessfully",HttpStatus.NOT_FOUND);
 	}
 	
 	@GetMapping("/hello")
