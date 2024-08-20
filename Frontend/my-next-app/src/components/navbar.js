@@ -17,7 +17,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
-import Image from 'next/image';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Leads', 'Opportunities', 'Learners', 'Courses', 'Activities', 'Analytics'];
