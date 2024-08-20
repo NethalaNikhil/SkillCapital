@@ -4,7 +4,7 @@ import Navbar from './navbar';
 
 const Layout = ({ children }) => {
   const router = useRouter();
-  const excludeNavBarOn = ['/page']; // Add the path of the page(s) where you don't want the Navbar
+  const excludeNavBarOn = ['/page']; 
   console.log('Current Path:', router.pathname);  
 
   return (
