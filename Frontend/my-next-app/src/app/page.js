@@ -39,11 +39,11 @@ export default function LoginPage() {
         if (!hasError) {
             try {
                 const response = await axios.post(`${apiUrl}/login`, {
-                    "email" : username,
+                    "username" : username,
                     "password" : password
                 });
 
-                if (response.status === 200) {
+                if (response.status === 201) {
                     router.push('/dashboard')
                     console.log(response.data);
                     

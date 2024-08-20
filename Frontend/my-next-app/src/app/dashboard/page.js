@@ -60,7 +60,7 @@ export default function Dashboard() {
                 <div className="flex-1 bg-white shadow-lg my-4 lg:ml-10 w-full lg:w-[140%]">
                     <Chart
                         type='line'
-                        width="100%"
+                        width="140%"
                         height="400"
                         series={[
                             {
