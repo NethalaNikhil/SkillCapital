@@ -31,14 +31,15 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <img className="mx-2 hidden sm:block " src="/button.svg" width={35} alt="button" />
-      <img className='mb-2' src="/skillcapital.png" width={300} height={5} alt="skill capital" />
+      <img className="mx-2 hidden sm:block" src="/button.svg" width={35} alt="Button logo" />
+      <img className='mb-2' src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" />
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+            <ListItemButton sx={{ textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <ListItemText primary={item} sx={{ fontSize: '1rem' }} />
+              <img src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -64,16 +65,17 @@ function DrawerAppBar(props) {
             <MenuIcon />
           </IconButton>
 
-          <img className="mx-2" src="/button.svg" width={35} alt="button" />
-          <img src="/skillcapital.png" width={300} height={5} alt="skill capital" style={{ marginRight: 'auto' }} />
+          <img className="mx-2" src="/button.svg" width={35} alt="Button logo" />
+          <img src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" style={{ marginRight: 'auto' }} />
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#000000' }} className="nav-item-button hover-bg">
+              <Button key={item} sx={{ color: '#000000', fontSize: '1rem' }} className="nav-item-button hover-bg">
                 {item}
+                <img src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
               </Button>
             ))}
           </Box>
-          <img src="/Stars.png" width={40} alt="stars" className="hidden md:block" />
+          <img src="/Stars.png" width={40} height="auto" alt="Star icon" className="hidden md:block" />
           <Button className="icon-button"><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
           <Button className="icon-button"><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
         </Toolbar>
