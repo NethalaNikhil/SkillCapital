@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
 import Navbar from '../../components/navbar'
-import Image from 'next/image'
+
 
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
@@ -20,35 +20,35 @@ export default function Dashboard() {
             <div >
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-2 mx-10 '>
                     <div className='flex border-2 border p-2 rounded-lg bg-white shadow-lg shadow-slate-200'>
-                        <Image src='/person.svg' width={50} height={10}></Image>
+                        <img src='/person.svg' width={50} height={10} alt='person'></img>
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Not Contacted</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
                     <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <Image src='/person.svg' width={50} height={10}></Image>
+                        <img src='/person.svg' width={50} height={10} alt='person'></img>
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Warm Lead</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
                     <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200  bg-white'>
-                        <Image src='/person.svg' width={50} height={10}></Image>
+                        <img src='/person.svg' width={50} height={10} alt='person'></img>
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Attempted</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
                     <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <Image src='/person.svg' width={50} height={10}></Image>
+                        <img src='/person.svg' width={50} height={10} alt='person'></img>
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Registered</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
                     <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <Image src='/person.svg' width={50} height={10}></Image>
+                        <img src='/person.svg' width={50} height={10} alt='person'></img>
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Cold Lead</p>
                             <p className="text-2xl font-bold text-black">14</p>

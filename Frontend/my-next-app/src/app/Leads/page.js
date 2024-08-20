@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import Navbar from './../../components/navbar'
-import Image from 'next/image'
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -102,7 +101,7 @@ export default function Leads() {
           <div>
             <div className='flex justify-between mx-3'>
               <div className='flex'>
-                <Image src="/employee_contact.svg" width={50} height={16}></Image>
+                <img src="/employee_contact.svg" width={50} height={16}></img>
                 <p className='text-lg font-medium mt-2 mx-2'>ALL Leads</p>
                 <img src="/downarrow.svg" height={15} width={15} />
               </div>
@@ -126,7 +125,7 @@ export default function Leads() {
                     <Box className='rounded-md border-0' sx={style}>
                       <div className='flex justify-between mx-3  p-2'>
                         <div className='flex'>
-                          <Image src="/employee_contact.svg" width={40} height={16}></Image>
+                          <img src="/employee_contact.svg" width={40} height={16}></img>
                           <p className='text-lg font-medium mt-2 mx-2'>Create Leads</p>
                         </div>
                         <div>
