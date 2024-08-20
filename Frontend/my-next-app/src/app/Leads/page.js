@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import Navbar from './../../components/navbar'
+import Navbar from './../../components/navbar';
 import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -10,9 +10,8 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import BasicTextFields from './../../components/input'
-
-
+import BasicTextFields from './../../components/input';
+import Image from 'next/image';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,8 +59,6 @@ const columns = [
   { field: 'Phone', headerName: 'Phone', width: 250 },
   { field: 'Stack', headerName: 'Stack', width: 250 },
   { field: 'Course', headerName: 'Course', width: 250 },
-
-
 ];
 
 const rows = [
@@ -88,11 +85,11 @@ const style = {
   p: 4,
 };
 
-
 export default function Leads() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   return (
     <>
       <Navbar />
@@ -101,13 +98,13 @@ export default function Leads() {
           <div>
             <div className='flex justify-between mx-3'>
               <div className='flex'>
-                <img src="/employee_contact.svg" width={50} height={16}></img>
+                <Image src="/employee_contact.svg" width={50} height={16} alt="Employee Contact" />
                 <p className='text-lg font-medium mt-2 mx-2'>ALL Leads</p>
-                <img src="/downarrow.svg" height={15} width={15} />
+                <Image src="/downarrow.svg" height={15} width={15} alt="Dropdown Arrow" />
               </div>
               <div className='mt-2'>
-                <Button onClick={handleOpen} className='text-white me-1' variant="contained">Create Lead <img src="/whitedownarrow.svg" height={15} width={15} /></Button>
-                <Button className='text-slate-950 border border-slate-500' variant="outlined">Actions <img src="/downarrow.svg" height={15} width={15} /></Button>
+                <Button onClick={handleOpen} className='text-white me-1' variant="contained">Create Lead <Image src="/whitedownarrow.svg" height={15} width={15} alt="Create Lead" /></Button>
+                <Button className='text-slate-950 border border-slate-500' variant="outlined">Actions <Image src="/downarrow.svg" height={15} width={15} alt="Actions" /></Button>
                 <Modal
                   aria-labelledby="transition-modal-title"
                   aria-describedby="transition-modal-description"
@@ -125,15 +122,20 @@ export default function Leads() {
                     <Box className='rounded-md border-0' sx={style}>
                       <div className='flex justify-between mx-3  p-2'>
                         <div className='flex'>
-                          <img src="/employee_contact.svg" width={40} height={16}></img>
+                          <Image src="/employee_contact.svg" width={40} height={16} alt="Employee Contact" />
                           <p className='text-lg font-medium mt-2 mx-2'>Create Leads</p>
                         </div>
                         <div>
-                          <button onClick={handleClose} type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"><svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path></svg><span class="sr-only">Close modal</span></button>
+                          <button onClick={handleClose} type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                          </button>
                         </div>
                       </div>
                       <div className='border-t-2'>
-                      <BasicTextFields/>
+                        <BasicTextFields />
                       </div>
                     </Box>
                   </Fade>
@@ -145,7 +147,7 @@ export default function Leads() {
           <div className='flex'>
             <div>
               <Search className='border border-slate-500  m-0 ms-3 mt-2 p-0'>
-                <SearchIconWrapper >
+                <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
@@ -155,8 +157,12 @@ export default function Leads() {
               </Search>
             </div>
             <div className='mt-2 ms-2'>
-              <Button className='text-white border-r-0' variant="contained"><img src="/whiteTable.svg" height={15} width={15} /> Table</Button>
-              <Button className='text-slate-950 border border-slate-500 border-l-0' variant="outlined"><img src="/kanban.svg" height={15} width={15} /> kanban</Button>
+              <Button className='text-white border-r-0' variant="contained">
+                <Image src="/whiteTable.svg" height={15} width={15} alt="Table View" /> Table
+              </Button>
+              <Button className='text-slate-950 border border-slate-500 border-l-0' variant="outlined">
+                <Image src="/kanban.svg" height={15} width={15} alt="Kanban View" /> Kanban
+              </Button>
             </div>
           </div>
 
@@ -175,10 +181,8 @@ export default function Leads() {
               />
             </div>
           </div>
-
         </div>
       </div>
     </>
   );
-
 }
