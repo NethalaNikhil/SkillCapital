@@ -17,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Leads', 'Opportunities', 'Learners', 'Courses', 'Activities', 'Analytics'];
@@ -31,15 +32,15 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <img className="mx-2 hidden sm:block" src="/button.svg" width={35} alt="Button logo" />
-      <img className='mb-2' src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" />
+      <Image className="mx-2 hidden sm:block" src="/button.svg" width={35} alt="Button logo" />
+      <Image className='mb-2' src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" />
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <ListItemText primary={item} sx={{ fontSize: '1rem' }} />
-              <img src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
+              <Image src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -65,17 +66,17 @@ function DrawerAppBar(props) {
             <MenuIcon />
           </IconButton>
 
-          <img className="mx-2" src="/button.svg" width={35} alt="Button logo" />
-          <img src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" style={{ marginRight: 'auto' }} />
+          <Image className="mx-2" src="/button.svg" width={35} alt="Button logo" />
+          <Image src="/skillcapital.png" width={300} height="auto" alt="Skill Capital logo" style={{ marginRight: 'auto' }} />
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#000000', fontSize: '1rem' }} className="nav-item-button hover-bg">
                 {item}
-                <img src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
+                <Image src="/downarrow.svg" height={10} width="auto" alt={`${item} dropdown icon`} />
               </Button>
             ))}
           </Box>
-          <img src="/Stars.png" width={40} height="auto" alt="Star icon" className="hidden md:block" />
+          <Image src="/Stars.png" width={40} height="auto" alt="Star icon" className="hidden md:block" />
           <Button className="icon-button"><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
           <Button className="icon-button"><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
         </Toolbar>

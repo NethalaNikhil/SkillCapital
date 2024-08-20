@@ -4,51 +4,47 @@ import Button from '@mui/material/Button';
 import dynamic from 'next/dynamic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-regular-svg-icons';
-import Navbar from '../../components/navbar'
-
-
+import Navbar from '../../components/navbar';
+import Image from 'next/image';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-
-
 export default function Dashboard() {
-
     return (
         <div style={{ color: "#F4F6F9" }}>
             <Navbar />
-            <div >
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-2 mx-10 '>
-                    <div className='flex border-2 border p-2 rounded-lg bg-white shadow-lg shadow-slate-200'>
-                        <img src='/person.svg' width={50} height={10} alt='person'></img>
+            <div>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-2 mx-10'>
+                    <div className='flex border-2 p-2 rounded-lg bg-white shadow-lg shadow-slate-200'>
+                        <Image src='/person.svg' width={50} height={50} alt='person' />
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Not Contacted</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
-                    <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <img src='/person.svg' width={50} height={10} alt='person'></img>
+                    <div className='flex border-2 p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
+                        <Image src='/person.svg' width={50} height={50} alt='person' />
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Warm Lead</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
-                    <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200  bg-white'>
-                        <img src='/person.svg' width={50} height={10} alt='person'></img>
+                    <div className='flex border-2 p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
+                        <Image src='/person.svg' width={50} height={50} alt='person' />
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Attempted</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
-                    <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <img src='/person.svg' width={50} height={10} alt='person'></img>
+                    <div className='flex border-2 p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
+                        <Image src='/person.svg' width={50} height={50} alt='person' />
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Registered</p>
                             <p className="text-2xl font-bold text-black">14</p>
                         </div>
                     </div>
-                    <div className='flex border-2 border p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
-                        <img src='/person.svg' width={50} height={10} alt='person'></img>
+                    <div className='flex border-2 p-2 rounded-lg shadow-lg shadow-slate-200 bg-white'>
+                        <Image src='/person.svg' width={50} height={50} alt='person' />
                         <div className='m-5'>
                             <p style={{ color: '#a8c6df' }}>Cold Lead</p>
                             <p className="text-2xl font-bold text-black">14</p>
@@ -56,7 +52,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col lg:flex-row mb-3 sm:">
+            <div className="flex flex-col lg:flex-row mb-3">
                 <div className="flex-1 bg-white shadow-lg my-4 lg:ml-10 w-full lg:w-[140%]">
                     <Chart
                         type='line'
@@ -124,4 +120,4 @@ export default function Dashboard() {
             </div>
         </div>
     );
-};
+}

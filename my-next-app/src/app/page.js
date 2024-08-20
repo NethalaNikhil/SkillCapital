@@ -6,12 +6,13 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function LoginPage() {
-    const router = useRouter()
+    const router = useRouter();
 
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -38,14 +39,13 @@ export default function LoginPage() {
         if (!hasError) {
             try {
                 const response = await axios.post(`${apiUrl}/login`, {
-                    "username" : username,
-                    "password" : password
+                    "username": username,
+                    "password": password
                 });
 
                 if (response.status === 201) {
-                    router.push('/dashboard')
+                    router.push('/dashboard');
                     console.log(response.data);
-                    
                 }
             } catch (error) {
                 if (error.response && error.response.status === 401) {
@@ -62,16 +62,16 @@ export default function LoginPage() {
         <main>
             <div className="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                 <div className='md:ms-28 ms-5'>
-                    <img className='md:ms-20 ms-5 mb-10 w-3/4 md:w-auto' src="/skillcapital.png" alt="Logo"></img>
+                    <Image className='md:ms-20 ms-5 mb-10 w-3/4 md:w-auto' src="/skillcapital.png" alt="Skill Capital Logo" />
                     <div className='border-inherit border-2 rounded-md shadow-lg p-6 w-full md:w-3/4 mt-5 md:ms-10'>
                         <label className='font-normal text-sm'>User Name</label>
-                        <TextField 
+                        <TextField
                             fullWidth
                             id="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                        {usernameError && <div style={{ color: '#E22449',fontSize:'15px' }}>{usernameError}</div>}
+                        {usernameError && <div style={{ color: '#E22449', fontSize: '15px' }}>{usernameError}</div>}
                         <label className='font-normal text-sm'>Password</label>
                         <TextField
                             type="password"
@@ -80,7 +80,7 @@ export default function LoginPage() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        {passwordError && <div style={{ color: '#E22449',fontSize:'15px' }}>{passwordError}</div>}
+                        {passwordError && <div style={{ color: '#E22449', fontSize: '15px' }}>{passwordError}</div>}
                         <Button
                             fullWidth
                             variant="contained"
@@ -94,7 +94,7 @@ export default function LoginPage() {
                             <Checkbox {...label} />
                             <span className='text-slate-600'>Remember Me</span>
                         </div>
-                        <p className=' text-slate-600 text-center mt-20'>©2024, All rights reserved</p>
+                        <p className='text-slate-600 text-center mt-20'>©2024, All rights reserved</p>
                     </div>
                 </div>
                 <div className='w-1.9/3 left-[50%] mt-10'>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                         <h1 className='text-3xl font-bold w-3/4 text-center text-customBlue ps-10 ms-4'>Seamlessly manage all learner data in a unified platform.</h1>
                         <p className='text-lg w-3/4 text-center font-light text-customBlue ms-10 lg:ms-14'>Centralize customer data effortlessly. Streamline communication, sales, and support for seamless growth.</p>
                     </div>
-                    <img className='mt-10' src="/pinkcrm.png"></img>
+                    <Image className='mt-10' src="/pinkcrm.png" alt="Pink CRM" />
                 </div>
             </div>
         </main>
