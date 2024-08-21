@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from 'react';
+import Image from 'next/image'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
@@ -38,11 +39,11 @@ export default function LoginPage() {
         if (!hasError) {
             try {
                 const response = await axios.post(`${apiUrl}/login`, {
-                    "username" : username,
+                    "email" : username,
                     "password" : password
                 });
 
-                if (response.status === 201) {
+                if (response.status === 200) {
                     router.push('/dashboard')
                     console.log(response.data);
                     

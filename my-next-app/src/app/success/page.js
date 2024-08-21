@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -68,14 +69,14 @@ function DrawerAppBar(props) {
           <img src="/skillcapital.png" width={300} height={5} alt="skill capital" style={{ marginRight: 'auto' }} />
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#000000' }} className="nav-item-button hover-bg">
+              <Button key={item} sx={{ color: '#000000' }}>
                 {item}
               </Button>
             ))}
           </Box>
           <img src="/Stars.png" width={40} alt="stars" className="hidden md:block" />
-          <Button className="icon-button"><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
-          <Button className="icon-button"><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
+          <Button><FontAwesomeIcon icon={faBell} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
+          <Button><FontAwesomeIcon icon={faUser} width={23} style={{ color: 'black', fontSize: '24px' }} /></Button>
         </Toolbar>
       </AppBar>
       <nav>
@@ -95,7 +96,7 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 1 }}>
+      <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
       </Box>
     </Box>
